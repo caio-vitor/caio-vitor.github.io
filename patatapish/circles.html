@@ -166,7 +166,27 @@
         }
       }
 
+      var mouseColors = ["red", "green", "blue", "orange", "yellow", "teal"];
+
+      var listSounds = ["sounds/bubbles.mp3", "sounds/moon.mp3", "sounds/zig-zag.mp3", "sounds/wipe.mp3", "sounds/veil.mp3", "sounds/timer.mp3"];
+
       var circles = [];
+
+      function onMouseDown(event) {
+        var randSnd = listSounds[Math.floor(Math.random()*listSounds.length)];
+        console.log(randSnd);
+        var maxPoint = new Point(view.size.width, view.size.height);
+        var randPt = Point.random();
+        var point = maxPoint * randPt;
+        var nCircle = new Path.Circle(point, 300);
+        nCircle.fillColor = new Color(Math.random(),Math.random(),Math.random());
+        var sounds = new Howl({
+          src: [randSnd]
+        });
+        sounds.play();
+        circles.push(nCircle);
+      }
+
 
       function onKeyDown(event) {
         if (keyData[event.key]) {
