@@ -171,20 +171,28 @@
       var listSounds = ["sounds/bubbles.mp3", "sounds/moon.mp3", "sounds/zig-zag.mp3", "sounds/wipe.mp3", "sounds/veil.mp3", "sounds/timer.mp3"];
 
       var circles = [];
-      
-      var text = new PointText(view.center);
-      text.style = {
-            fontFamily: 'Sans-serif',
-            fontWeight: 'bold',
-            fontSize: 36,
-            fillColor: 'lightslategray',
-            justification: 'center'
 
-      if (view.size.width > 980) {
-        text.content = 'T Y P E    A N Y    L E T T E R';
-      } else {
-          text.content = 'T A P    A N Y W H E R E';
-        }
+      // if (view.size.width > 980) {
+      //   var text = new PointText(view.center);
+      //   text.content = 'T Y P E    A N Y    L E T T E R';
+      //   text.style = {
+      //       fontFamily: 'Sans-serif',
+      //       fontWeight: 'bold',
+      //       fontSize: 20,
+      //       fillColor: 'lightslategray',
+      //       justification: 'center'
+      //   };
+      // } else {
+      //     var text = new PointText(view.center);
+      //     text.content = 'T A P    A N Y W H E R E';
+      //     text.style = {
+      //         fontFamily: 'Sans-serif',
+      //         fontWeight: 'bold',
+      //         fontSize: 36,
+      //         fillColor: 'lightslategray',
+      //         justification: 'center'
+      //     };
+      //   }
 
       function onMouseDown(event) {
         var randSnd = listSounds[Math.floor(Math.random()*listSounds.length)];
@@ -229,5 +237,9 @@
   </head>
   <body>
     <canvas id="myCanvas" resize></canvas>
+    <div class="over">
+      <span id="full">Digite qualquer letra</span>
+      <span id="mobile">Toque em qualquer lugar</span>
+    </div>
   </body>
 </html>
