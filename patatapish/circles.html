@@ -6,6 +6,7 @@
     <script type="text/javascript" src="js/lib/paper-full.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.min.js"></script>
     <link rel="stylesheet" href="circles.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <script type="text/paperscript" canvas="myCanvas">
       var keyData = {
         q: {
@@ -171,6 +172,28 @@
       var listSounds = ["sounds/bubbles.mp3", "sounds/moon.mp3", "sounds/zig-zag.mp3", "sounds/wipe.mp3", "sounds/veil.mp3", "sounds/timer.mp3"];
 
       var circles = [];
+
+      if (view.size.width > 980) {
+        var text = new PointText(view.center);
+        text.content = 'T Y P E    A N Y    L E T T E R';
+        text.style = {
+            fontFamily: 'Raleway',
+            fontWeight: 'bold',
+            fontSize: 20,
+            fillColor: 'lightslategray',
+            justification: 'center'
+        };
+      } else {
+          var text = new PointText(view.center);
+          text.content = 'T A P    A N Y W H E R E';
+          text.style = {
+              fontFamily: 'Raleway',
+              fontWeight: 'bold',
+              fontSize: 36,
+              fillColor: 'lightslategray',
+              justification: 'center'
+          };
+        }
 
       function onMouseDown(event) {
         var randSnd = listSounds[Math.floor(Math.random()*listSounds.length)];
